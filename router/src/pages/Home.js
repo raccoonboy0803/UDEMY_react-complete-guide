@@ -8,6 +8,7 @@ const HomePage = () => {
       <p>
         Go to <Link to="/products">the list of products</Link>
       </p>
+      <p>test test</p>
     </>
   );
 };
