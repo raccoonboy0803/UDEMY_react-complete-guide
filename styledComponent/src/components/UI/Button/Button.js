@@ -9,7 +9,6 @@ const Button = styled.button`
   background: #8b005d;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
   cursor: pointer;
-
   @media (min-width: 768px) {
     width: auto;
   }

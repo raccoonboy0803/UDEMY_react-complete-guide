@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import styled from './MainNavigation.module.css';
 
 const MainNavigation = () => {
@@ -7,10 +7,27 @@ const MainNavigation = () => {
       <nav>
         <ul className={styled.list}>
           <li>
-            <Link to="/">Home</Link>
-            <Link to="/products">Products</Link>
+            {/* <Link to="/">Home</Link> */}
+            <NavLink
+              to="/"
+              className={({ isAcitve }) =>
+                isAcitve ? styled.active : undefined
+              }
+            >
+              Home
+            </NavLink>
           </li>
-          <li>commit test</li>
+          <li>
+            {/* <Link to="/products">Products</Link> */}
+            <NavLink
+              to="/products"
+              className={({ isActive }) =>
+                isActive ? styled.active : undefined
+              }
+            >
+              Products
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>
