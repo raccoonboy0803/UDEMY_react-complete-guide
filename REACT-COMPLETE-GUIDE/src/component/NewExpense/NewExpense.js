@@ -1,7 +1,12 @@
 import './NewExpense.css';
 import ExpenseForm from './ExpenseForm';
+import { useState } from 'react';
 
 function NewExpense(props) {
+  const [modal, setModal] = useState(false);
+  const modalHandle = () => {
+    setModal(!modal);
+  };
   const saveExpenseData = (enteredUserInput) => {
     const userInput = {
       ...enteredUserInput,
@@ -12,7 +17,15 @@ function NewExpense(props) {
 
   return (
     <div className="new-expense">
-      <ExpenseForm onSaveExpenseData={saveExpenseData} />
+      {modal ? (
+        <ExpenseForm
+          onSaveExpenseData={saveExpenseData}
+          modal={modal}
+          setModal={setModal}
+        />
+      ) : (
+        <button onClick={modalHandle}>Add New Expense</button>
+      )}
     </div>
   );
 }
