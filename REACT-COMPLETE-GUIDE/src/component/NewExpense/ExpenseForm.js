@@ -10,6 +10,7 @@ const ExpenseFrom = (props) => {
   const { title, amount, date } = userInput;
   const change = (e) => {
     const { value, name } = e.target;
+    // console.log(value);
     // setUserInput({
     //   ...userInput,
     //   [name]: value,
@@ -26,6 +27,9 @@ const ExpenseFrom = (props) => {
       amount: '',
       date: '',
     });
+  };
+  const modalHandle = () => {
+    props.setModal(!props.modal);
   };
 
   return (
@@ -51,7 +55,7 @@ const ExpenseFrom = (props) => {
           <input
             type="date"
             min="2019-01-01"
-            max="2023-12-31"
+            max="2022-12-31"
             name="date"
             value={date}
             onChange={change}
@@ -59,6 +63,9 @@ const ExpenseFrom = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={modalHandle}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
